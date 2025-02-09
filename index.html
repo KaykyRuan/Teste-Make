@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Dev Front-End</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="quiz-section">
+    <p class="intro-text"><strong>TESTE</strong> DEV FRONT-END </p>
+
+    <div class="quiz-container">
+        <!-- Quadrado cinza das perguntas -->
+        <div class="questions-box">
+            <!-- Pergunta 1 -->
+            <div id="question1" class="question active" >
+                <div class="question-text" data-number="1">
+                    <h2>Quem é o CEO da Make Vendas ?</h2>
+                </div>
+                <div class="answers-box">
+                    <label class="answer-option">
+                        <input type="radio" name="q1" value="a">
+                        <span class="answer-text">Juan Martinez</span>
+                    </label>
+                    <label class="answer-option">
+                        <input type="radio" name="q1" value="b">
+                        <span class="answer-text">Andrey Assunção</span>
+                    </label>
+                    <label class="answer-option">
+                        <input type="radio" name="q1" value="c">
+                        <span class="answer-text">Gustavo Henrique</span>
+                    </label>
+                    <label class="answer-option">
+                        <input type="radio" name="q1" value="d">
+                        <span class="answer-text">Bruno Monteiro</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div id="question2" class="question" >
+                <div class="question-text" data-number="2">
+                    <h2>Quantos anos a Make tem de mercado ?</h2>
+                </div>
+                <div class="answers-box">
+                    <label class="answer-option">
+                        <input type="radio" name="q2" value="a">
+                        <span class="answer-text">9 Meses</span>
+                    </label>
+                    <label class="answer-option">
+                        <input type="radio" name="q2" value="b">
+                        <span class="answer-text">50 Anos </span>
+                    </label>
+                    <label class="answer-option">
+                        <input type="radio" name="q2" value="c">
+                        <span class="answer-text">17 Anos</span>
+                    </label>
+                    <label class="answer-option">
+                        <input type="radio" name="q2" value="d">
+                        <span class="answer-text">1 Mês</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div id="question3" class="question" >
+                <div class="question-text" data-number="3">
+                    <h2>Quantos passos tem o método exclusivo da Make Vendas ?</h2>
+                </div>
+                <div class="answers-box">
+                    <label class="answer-option">
+                        <input type="radio" name="q3" value="a">
+                        <span class="answer-text">4 Passos</span>
+                    </label>
+                    <label class="answer-option">
+                        <input type="radio" name="q3" value="b">
+                        <span class="answer-text">1 Passo</span>
+                    </label>
+                    <label class="answer-option">
+                        <input type="radio" name="q3" value="c">
+                        <span class="answer-text">15 Passos</span>
+                    </label>
+                    <label class="answer-option">
+                        <input type="radio" name="q3" value="d">
+                        <span class="answer-text">10 Passos</span>
+                    </label>
+                </div>
+            </div>
+   
+
+        <!-- Navegação (setas e números) -->
+        <div class="navigation-container">
+            <button id="prevBtn" disabled>←</button>
+            <div class="menu">
+                <button id="menu1" class="menu-btn active" onclick="navigateToQuestion(1)">1</button>
+                <button id="menu2" class="menu-btn" onclick="navigateToQuestion(2)">2</button>
+                <button id="menu3" class="menu-btn" onclick="navigateToQuestion(3)">3</button>
+            </div>
+            <button id="nextBtn">→</button>
+        </div>
+
+        <!-- Botão Finalizar -->
+        <button id="finishBtn" disabled>Finalizar</button>
+    </div>
+
+</section>
+
+    <!-- Página de agradecimento -->
+    <section id="thankYouSection" class="thank-you-section hidden">
+        <div class="thankYouPage">
+            <p>Obrigado por participar !</p>
+        </div>
+    </section>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

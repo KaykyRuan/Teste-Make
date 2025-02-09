@@ -1,0 +1,314 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    position: relative; /* Necessário para o posicionamento fixo funcionar corretamente */
+    min-height: 100vh;
+}
+strong {
+    font-weight: 600;
+}
+.intro-text {
+    position: relative; 
+    font-size: 40px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    
+}
+
+
+
+.quiz-container {
+    
+    text-align: center;
+    width: 870px;
+}
+
+
+.questions-box {
+    background-color: #080707;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 300px;
+    box-shadow: #4b4a4a;
+    
+}
+
+
+.question {
+    display: none;
+    position: relative;
+    margin-bottom: 30px;
+    text-align: left;
+}
+.question.active {
+    display: block;
+}
+
+/* Estilo para o contêiner da pergunta */
+.question-text {
+    position: relative;
+    padding-left: 60px; /* Espaço para o número */
+}
+
+/* Estilo para o número ao lado da pergunta */
+.question-text::before {
+    content: attr(data-number);
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: rgb(255, 123, 0);
+    color: white;
+    border-radius: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1;
+}
+/* Estilo para o texto da pergunta */
+.question-text h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    font-size: 18px;
+    color: aliceblue;
+}
+
+/* Estilo para o contêiner das respostas */
+.answers-box {
+    margin-top: 20px;
+  }
+  
+  .answer-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid #4b4a4a;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+.answer-option:focus {
+    border-color: rgb(255, 123, 0);
+    outline: none;
+}
+  
+  .answer-option:hover {
+    border-color: rgb(255, 123, 0);
+}
+.answer-option input[type="radio"] {
+    display: none; /* Esconde o botão de rádio */
+  }
+/* Adiciona um indicador visual para a opção selecionada */
+.answer-option input[type="radio"]:checked + .answer-text::before {
+    content: "✓ ";
+    color: rgb(255, 123, 0);
+
+}   
+  
+
+
+/* Navegação (setas e números) */
+.navigation-container {
+    display: flex;
+    top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 15px;
+    padding-right: 380px; /* Ajuste o padding conforme necessário */
+    gap: 5px; /* Espaçamento entre os botões */
+    position: relative;
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta o posicionamento horizontal */  
+    z-index: 1000; /* Garante que a barra fique acima de outros elementos */
+    padding: 10px;
+    
+}
+
+.navigation-container button:hover {
+    transform: scale(1.1); /* Aumenta o botão em 10% */
+}
+
+
+.navigation-container button {
+    display: flex;
+    padding: 8px 12px; /* Ajuste o padding para um tamanho mais compacto */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 14px;
+    transition: background-color 0.3s ease; /* Transição suave */
+    
+}
+
+.navigation-container button:disabled {
+    
+    cursor: not-allowed;
+  
+    
+}
+
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espaçamento entre os botões numéricos */
+}
+
+
+/* Estilo para os botões do menu */
+.menu-btn {
+    transition: all 0.2s ease;
+    justify-content: center;
+    align-items: center;
+    margin: 1px;
+    padding: 0px;
+    display: flex;
+    border: 2px solid rgb(255, 123, 0) !important; /* Borda laranja */
+    background-color: transparent !important; /* Fundo transparente */
+    border-radius: 3px;
+    cursor: pointer;
+    color: white; /* Número em branco */
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transição suave */
+    width: 30px; /* Largura fixa para manter formato quadrado */
+    height: 30px; /* Altura fixa */
+   
+}
+
+/* Estilo para o botão selecionado */
+.menu-btn.active {
+    background-color: rgb(255, 123, 0) !important; /* Fundo laranja */
+    border: 2px solid rgb(255, 123, 0); /* Mantém a borda laranja */
+    color: white; /* Número em branco */
+    transform: none !important;
+
+    
+    
+}
+
+.menu-btn:hover {
+    transform: scale(1.1); /* Aumenta o botão em 10% */
+}
+.menu-btn:focus {
+    outline: none;
+
+}
+
+/* Botão Finalizar */
+#finishBtn {
+   
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(255, 123, 0);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid #4b4a4a;
+    transition: transform 0.2s ease, background-color 0.3s ease; 
+
+    
+}
+
+#finishBtn:hover {
+    transform: scale(1.05); /* Aumenta o botão em 5% */
+}
+
+
+
+#finishBtn:disabled {
+    
+    background-color: transparent;
+    cursor: not-allowed;
+}
+
+/* Página de agradecimento */
+/* Estilo para a página de agradecimento */
+
+
+
+
+/* Estilo para a seção de agradecimento */
+.thank-you-section {
+    display: none; /* Inicialmente oculta */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+    z-index: 10000; /* Garante que fique acima de tudo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para a mensagem de agradecimento */
+.thankYouPage {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* Classe para ocultar elementos */
+.hidden {
+    display: none !important;
+}
+/* Estilo para as setas de navegação */
+#prevBtn, 
+#nextBtn {
+    color: white; /* Cor branca */
+    font-size: 15px; /* Tamanho aumentado */
+    padding: 10px 15px; /* Espaçamento maior */
+    transition: transform 0.2s ease;
+}
+
+#prevBtn:hover, 
+#nextBtn:hover {
+    transform: scale(0.8); /* Aumenta um pouco mais no hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Efeito sutil de fundo */
+}
+
+/* Manter o estilo quando desabilitado */
+#prevBtn:disabled, 
+#nextBtn:disabled {
+    color: transparent; /* Cor cinza quando desabilitado */
+    transform: none;
+    background-color: transparent;
+}
+
+
+* {
+    user-select: none; /* Impede seleção de texto */
+    cursor: default; /* Cursor padrão */
+}
